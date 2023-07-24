@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { styled } from "styled-components";
 
 import { IFilm } from "../../interfaces/films";
@@ -8,6 +8,7 @@ interface IProps {
 }
 
 const MoviesList = ({films}: IProps) => {
+    const location = useLocation()
 
     return (
         <>
@@ -15,7 +16,12 @@ const MoviesList = ({films}: IProps) => {
             <List>
                 {films.map((film) => (
                     <FilmItem key={film.id}>
-                        <FilmLink to={`movies/${film.id}`}>{film.title}</FilmLink>
+                        <FilmLink 
+                            to={`movies/${film.id}`}
+                            state={{from: location}}
+                        >
+                            {film.title}
+                        </FilmLink>
                     </FilmItem>
                 ))}
             </List>

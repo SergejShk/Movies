@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
 
 import MovieInfo from "./MovieInfo";
 
 import { getFilmById } from "../../services/apiService";
+import AdditionalInfoNav from "./AdditionalInfoNav";
 
 const MovieDetails = () => {
     const [film, setFilm] = useState([]);
@@ -27,7 +28,12 @@ const MovieDetails = () => {
     }
     
     return (
-        <MovieInfo film={film}/>
+        <>
+            <MovieInfo movie={film}/>
+
+            <AdditionalInfoNav />
+            <Outlet />
+        </>
     );
 }
 

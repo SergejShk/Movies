@@ -1,9 +1,14 @@
+interface IGenre {
+    id: number;
+    name: string;
+}
 export interface IFilm {
     adult: boolean;
     backdrop_path: string;
     belongs_to_collection?: string | null; 
     budget?: number;
     genre_ids: number[];
+    genres?: IGenre[];
     homepage?: string;
     id: number;
     imdb_id?: string;

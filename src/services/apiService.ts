@@ -26,3 +26,26 @@ export const getTrendingFilms = async () => {
       console.log(error);
     }
   };
+
+  export const getCast = async (id: string) => {
+    try {
+      const response = await axios.get(
+        `${URL}movie/${id}/credits?api_key=${KEY}&language=en-US`
+      );
+  
+      return response.data.cast;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  export const getReviews = async (id: string) => {
+    try {
+      const response = await axios.get(
+        `${URL}movie/${id}/reviews?api_key=${KEY}&language=en-US`
+      );
+      return response.data.results;
+    } catch (error) {
+      console.log(error);
+    }
+  };
