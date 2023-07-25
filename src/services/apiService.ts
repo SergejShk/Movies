@@ -49,3 +49,12 @@ export const getTrendingFilms = async () => {
       console.log(error);
     }
   };
+
+  export const getFilmsBySearch = async (query: string) => {
+    return await axios(`${URL}search/movie`, {
+      params: {
+        api_key: KEY,
+        query: query,
+      },
+    }).then(response => response.data);
+  };

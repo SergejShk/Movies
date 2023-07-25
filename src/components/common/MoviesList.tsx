@@ -17,7 +17,7 @@ const MoviesList = ({films}: IProps) => {
                 {films.map((film) => (
                     <FilmItem key={film.id}>
                         <FilmLink 
-                            to={`movies/${film.id}`}
+                            to={`/movies/${film.id}`}
                             state={{from: location}}
                         >
                             {film.title}
