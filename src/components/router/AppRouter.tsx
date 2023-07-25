@@ -1,13 +1,14 @@
+import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 
-import SharedLayout from "../common/layouts/SharedLayout";
-import ErrorPage from "../common/ErrorPage";
-import MovieDetails from "../common/MovieDetails";
+const SharedLayout = lazy(() => import("../common/layouts/SharedLayout"));
+const ErrorPage = lazy(() => import("../common/ErrorPage"));
+const MovieDetails = lazy(() => import("../common/MovieDetails"));
 
-import Home from "../home/Home";
-import Movies from "../movies/Movies";
-import Cast from "../common/Cast";
-import Reviews from "../common/Reviews";
+const Home = lazy(() => import("../home/Home"));
+const Movies = lazy(() => import("../movies/Movies"));
+const Cast = lazy(() => import("../common/Cast"));
+const Reviews = lazy(() => import("../common/Reviews"));
 
 export const router = createBrowserRouter([
     {
